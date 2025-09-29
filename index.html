@@ -3,273 +3,142 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>AI‑BioX ConfEX</title>
-  <meta name="description" content="AI, Bio, Contents, Digital Wellness — Global ConfEX at COEX, Dec 11–13, 2025" />
+  <title>AI‑BioX ConfEX — Home</title>
+  <link rel="stylesheet" href="style.css" />
   <style>
-    :root{
-      --bg:#0a0a0a;         /* Black */
-      --card:#121212;       /* Dark surface */
-      --line:#1f1f1f;       /* Subtle border */
-      --text:#ffffff;       /* White */
-      --muted:#c8c8c8;      /* Light gray */
-      --gold:#D4AF37;       /* Gold accent */
-      --gold-600:#B7931F;   /* Hover/active */
-      --radius:18px;
-      color-scheme: dark;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif;
-      background:var(--bg); color:var(--text);
-    }
-    .container{width:100%; max-width:1140px; margin:0 auto; padding:0 20px}
-    header{position:sticky; top:0; z-index:50; backdrop-filter: blur(8px); background:rgba(10,10,10,.65); border-bottom:1px solid var(--line)}
-    nav{display:flex; align-items:center; justify-content:space-between; height:64px}
-    nav .links a{color:var(--muted); text-decoration:none; margin-left:20px}
-    nav .links a:hover{color:var(--text)}
-    .brand{display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--text); font-weight:600}
-    .logo{width:28px; height:28px; border-radius:50%; background: radial-gradient(circle at 30% 30%, var(--gold), var(--gold-600)); box-shadow:0 0 0 2px rgba(212,175,55,.2)}
-
-    .btn{display:inline-flex; align-items:center; justify-content:center; padding:10px 16px; border-radius:999px; border:1px solid var(--gold); color:var(--bg); background:var(--gold); font-weight:600; text-decoration:none}
-    .btn:hover{background:var(--gold-600); border-color:var(--gold-600)}
-    .btn-outline{background:transparent; color:var(--text); border-color:var(--line)}
-    .btn-outline:hover{border-color:var(--gold); color:var(--gold)}
-    .badge{display:inline-flex; align-items:center; gap:8px; font-size:12px; padding:6px 10px; border:1px solid var(--line); color:var(--muted); border-radius:999px; background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.3))}
-
-    .hero{position:relative; overflow:hidden}
-    .hero::before{content:""; position:absolute; inset:-20%; background:radial-gradient(60% 60% at 70% 10%, rgba(212,175,55,.25), transparent 60%), radial-gradient(50% 50% at 20% 80%, rgba(255,255,255,.06), transparent 60%)}
-    .hero .wrap{padding:84px 0}
-    h1{font-size:clamp(32px,5vw,56px); line-height:1.1; margin:14px 0 8px}
-    p.lead{color:var(--muted); max-width:720px}
-    .hero .cta{display:flex; gap:12px; margin-top:18px; flex-wrap:wrap}
-
-    section{padding:72px 0}
-    .section-head{margin-bottom:22px}
-    h2{font-size:clamp(24px,3.2vw,34px); margin:0 0 6px}
-    .muted{color:var(--muted)}
-
-    .grid{display:grid; gap:16px}
-    .grid-3{grid-template-columns:repeat(1,minmax(0,1fr))}
-    @media (min-width: 800px){ .grid-3{grid-template-columns:repeat(3,1fr)} }
-
-    .card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:18px}
-    .card h3{margin:0 0 6px; font-size:18px}
-
-    .timeline{display:grid; gap:16px}
-    .slot{border:1px solid var(--line); border-radius:14px; padding:12px 14px; background:rgba(255,255,255,.02)}
-    .slot .row{display:flex; align-items:center; justify-content:space-between; gap:10px}
-    .slot .time{font-size:12px; color:var(--bg); background:var(--gold); border-radius:999px; padding:6px 10px; font-weight:700}
-
-    .logos{display:grid; grid-template-columns:repeat(2,1fr); gap:12px}
-    @media (min-width:800px){ .logos{grid-template-columns:repeat(6,1fr)} }
-    .logo-card{background:var(--card); border:1px solid var(--line); border-radius:14px; height:74px; display:flex; align-items:center; justify-content:center}
-    .logo-card svg{opacity:.9}
-
-    .faq .item{overflow:hidden; border:1px solid var(--line); border-radius:14px}
-    .faq button{width:100%; text-align:left; background:var(--card); color:var(--text); padding:14px 16px; border:0; display:flex; align-items:center; justify-content:space-between}
-    .faq .answer{padding:0 16px 14px; color:var(--muted); display:none}
-    .faq .item.open .answer{display:block}
-
-    footer{border-top:1px solid var(--line); padding:38px 0; color:var(--muted)}
-    .foot-row{display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap}
-    .tiny{font-size:13px}
+    /* 홈 전용(애니메이션) */
+    .pillars{display:grid;gap:16px;grid-template-columns:repeat(1,1fr)}
+    @media(min-width:860px){.pillars{grid-template-columns:repeat(4,1fr)}}
+    .pillar{border:1px solid var(--line);border-radius:var(--radius);padding:18px;background:var(--card);opacity:0;transform:translateY(14px);animation:pillarIn .6s ease forwards}
+    .pillar:nth-child(1){animation-delay:.05s}
+    .pillar:nth-child(2){animation-delay:.15s}
+    .pillar:nth-child(3){animation-delay:.25s}
+    .pillar:nth-child(4){animation-delay:.35s}
+    @keyframes pillarIn{to{opacity:1;transform:translateY(0)}}
+    .themes{display:grid;gap:16px;grid-template-columns:repeat(1,1fr)}
+    @media(min-width:860px){.themes{grid-template-columns:repeat(3,1fr)}}
+    .theme-card h3{margin:0 0 6px;font-size:18px}
+    .theme-card ul{margin:8px 0 0;padding-left:18px;color:var(--muted)}
+    .cta-band{padding:56px 0;border-top:1px solid var(--line);background:linear-gradient(180deg, rgba(212,175,55,.08), rgba(0,0,0,0))}
+    .hero .badge{display:inline-flex;align-items:center;gap:8px;font-size:12px;padding:6px 10px;border:1px solid var(--line);color:var(--muted);border-radius:999px;background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.3))}
   </style>
 </head>
 <body>
-<header>
-  <div class="container">
-    <nav>
-      <a class="brand" href="#">
-        <span class="logo" aria-hidden="true"></span>
+  <!-- 헤더 (HOME에는 active 탭 없음) -->
+  <header class="header">
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.svg" alt="AI‑BioX"/>
         <span>AI‑BioX ConfEX</span>
       </a>
-      <div class="links tiny">
-        <a href="#about">About</a>
-        <a href="#program">Program</a>
-        <a href="#news">News</a>
-        <a href="#sponsors">Sponsors</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contact">Contact</a>
+      <nav class="tabs">
+        <a href="about.html">ABOUT</a>
+        <a href="conference.html">CONFERENCE</a>
+        <a href="exhibition.html">EXHIBITION</a>
+        <a href="program.html">PROGRAM</a>
+        <a href="visitor.html">VISITOR</a>
+        <a href="exhibitor.html">EXHIBITOR</a>
+        <a href="media.html">MEDIA</a>
+      </nav>
+      <div class="actions">
+        <a class="pill" href="#">🌐 LANGUAGE</a>
+        <a class="pill" href="login.html">LOG IN / JOIN</a>
       </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <span class="badge">Dec 11–13, 2025 · COEX, Seoul</span>
+      <h1>AI‑BioX ConfEX</h1>
+      <p class="muted">AI, Bio, Digital Wellness, Contents를 아우르는 글로벌 컨퍼런스 & 엑스포. 지식 교류와 미래 인재 육성을 선도하는 국제 플랫폼.</p>
+      <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+        <a class="btn" href="visitor.html">사전등록</a>
+        <a class="pill" href="conference.html">컨퍼런스 개요</a>
+        <a class="pill" href="program.html">프로그램 보기</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pillars: AI / Bio / Digital Wellness / Contents -->
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <h2>AI × Bio × Digital Wellness × Contents</h2>
+        <p class="muted">산업 간 융합과 최신 동향, 미래 전략을 논의하는 국제적 무대</p>
+      </div>
+      <div class="pillars">
+        <div class="pillar"><h3>AI</h3><p class="muted">Gen AI & LLM, AI Transformation, 데이터 거버넌스, 로보틱스 융합, 산업별 AI 적용</p></div>
+        <div class="pillar"><h3>Bio</h3><p class="muted">AI Drug Discovery, Precision Genomics, Bioinformatics, 글로벌 바이오이코노미</p></div>
+        <div class="pillar"><h3>Digital Wellness</h3><p class="muted">디지털 멘탈헬스, 웨어러블 바이오센싱, 공중보건, 조직 웰니스 프로그램</p></div>
+        <div class="pillar"><h3>Contents</h3><p class="muted">AI‑Driven Creation, OTT/플랫폼 전략, 메타버스/VR/AR, K‑Contents 확장</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Themes (Conference) -->
+  <section>
+    <div class="container">
+      <div class="section-head"><h2>Conference Main Themes</h2></div>
+      <div class="themes">
+        <article class="card theme-card">
+          <h3>AI</h3>
+          <ul>
+            <li>Gen AI & LLM / AI Transformation</li>
+            <li>Data Governance in AI / Global Dynamics of AI</li>
+            <li>Industrial Applications / Robotics – AI Convergence</li>
+          </ul>
+        </article>
+        <article class="card theme-card">
+          <h3>Bio</h3>
+          <ul>
+            <li>AI Drug Discovery / Precision Genomics</li>
+            <li>AI in Bioinformatics / Global Bioeconomy</li>
+            <li>Biotech Entrepreneurship / Global Biomedical Collaboration</li>
+          </ul>
+        </article>
+        <article class="card theme-card">
+          <h3>Digital Wellness · Contents</h3>
+          <ul>
+            <li>Digital Mental Healthcare / Wearable Biosensing</li>
+            <li>Public Health in Digital Era / Tech & Aging Society</li>
+            <li>AI‑Driven Creation / OTT Strategies / Metaverse · VR · AR</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs teaser -->
+  <section>
+    <div class="container">
+      <div class="section-head"><h2>AI‑BioX Programs</h2><p class="muted">학술·산업·투자의 새로운 가치를 확인하세요</p></div>
+      <div class="grid grid-3">
+        <div class="card"><h3>Mentoring</h3><p class="muted">분야별 전문가와 함께하는 멘토링 프로그램</p><p style="margin-top:8px"><a class="pill" href="program.html">자세히</a></p></div>
+        <div class="card"><h3>Poster Session</h3><p class="muted">차세대 연구자 성과 공유</p><p style="margin-top:8px"><a class="pill" href="program.html">자세히</a></p></div>
+        <div class="card"><h3>IR Pitching · Awards</h3><p class="muted">스타트업 IR, 혁신 어워즈, 네트워킹 리셉션</p><p style="margin-top:8px"><a class="pill" href="program.html">자세히</a></p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA band -->
+  <section class="cta-band">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
       <div>
-        <a class="btn tiny" href="#register">Register</a>
+        <h2 style="margin:0">사전등록</h2>
+        <p class="muted" style="margin:.25rem 0 0">컨퍼런스 / 전시 / 네트워킹</p>
       </div>
-    </nav>
-  </div>
-</header>
-
-<section class="hero">
-  <div class="container wrap">
-    <span class="badge">Dec 11–13, 2025 · COEX, Seoul</span>
-    <h1>AI‑BioX ConfEX</h1>
-    <p class="lead">AI, Bio, Contents, Digital Wellness를 아우르는 글로벌 컨퍼런스 & 엑스포. 산업 간 융합과 최신 동향, 미래 전략을 논의하는 국제 무대.</p>
-    <div class="cta">
-      <a class="btn" href="#register">사전등록</a>
-      <a class="btn btn-outline" href="#program">프로그램 보기</a>
-    </div>
-  </div>
-</section>
-
-<section id="about">
-  <div class="container">
-    <div class="section-head">
-      <h2>About</h2>
-      <p class="muted">2017년 시작된 글로벌 교류의 장 — 연구·산업·정책이 한자리에.</p>
-    </div>
-    <div class="grid grid-3">
-      <div class="card"><h3>Conference</h3><p class="muted">키노트·패널·테크세션으로 최신 인사이트 공유.</p></div>
-      <div class="card"><h3>Exhibition</h3><p class="muted">참가사 부스·데모·IR·포스터 세션 운영.</p></div>
-      <div class="card"><h3>Networking</h3><p class="muted">멘토링·리셉션·채용상담 등 현장 네트워킹.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="program">
-  <div class="container">
-    <div class="section-head">
-      <h2>Program Timetable</h2>
-      <p class="muted">다중 트랙 · 3일 일정(샘플)</p>
-    </div>
-    <div class="grid grid-3">
-      <div class="card">
-        <h3>Day 1 · Thu</h3>
-        <div class="timeline">
-          <div class="slot"><div class="row"><span class="time">09:00</span><span class="muted">Main Hall</span></div><div class="mt">Opening & Keynote</div></div>
-          <div class="slot"><div class="row"><span class="time">10:30</span><span class="muted">Main Hall</span></div><div class="mt">AI × Aging Biology (Panel)</div></div>
-        </div>
-      </div>
-      <div class="card">
-        <h3>Day 2 · Fri</h3>
-        <div class="timeline">
-          <div class="slot"><div class="row"><span class="time">09:30</span><span class="muted">Hall A</span></div><div class="mt">Keynote 2</div></div>
-          <div class="slot"><div class="row"><span class="time">14:00</span><span class="muted">Expo</span></div><div class="mt">IR Mentoring</div></div>
-        </div>
-      </div>
-      <div class="card">
-        <h3>Day 3 · Sat</h3>
-        <div class="timeline">
-          <div class="slot"><div class="row"><span class="time">10:00</span><span class="muted">Hall A</span></div><div class="mt">Closing</div></div>
-          <div class="slot"><div class="row"><span class="time">13:30</span><span class="muted">Expo</span></div><div class="mt">Awards</div></div>
-        </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a class="btn" href="visitor.html">Register</a>
+        <a class="pill" href="media.html">Notice</a>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="news">
-  <div class="container">
-    <div class="section-head"><h2>News & Announcements</h2></div>
-    <div class="grid grid-3">
-      <div class="card"><h3>사전등록 오픈</h3><p class="muted tiny">2025‑10‑15</p><p class="muted">학생/일반/스폰서 티켓 얼리버드 안내.</p></div>
-      <div class="card"><h3>연사 1차 공개</h3><p class="muted tiny">2025‑10‑25</p><p class="muted">Keynote 및 트랙 라인업.</p></div>
-      <div class="card"><h3>포스터/IR 접수</h3><p class="muted tiny">2025‑11‑01</p><p class="muted">접수 마감일 및 템플릿 공지.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="sponsors">
-  <div class="container">
-    <div class="section-head"><h2>Sponsors & Partners</h2><p class="muted">샘플 로고(골드 모노톤)</p></div>
-    <div class="logos">
-      <div class="logo-card"> 
-        <svg width="90" height="24" viewBox="0 0 90 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="1" y="1" width="88" height="22" rx="6" stroke="url(#g1)" stroke-width="2"/>
-          <defs>
-            <linearGradient id="g1" x1="0" y1="0" x2="90" y2="24" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#D4AF37"/>
-              <stop offset="1" stop-color="#B7931F"/>
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
-      <div class="logo-card"> 
-        <svg width="90" height="24" viewBox="0 0 90 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="12" cy="12" r="10" stroke="#D4AF37" stroke-width="2"/>
-        </svg>
-      </div>
-      <div class="logo-card"> 
-        <svg width="90" height="24" viewBox="0 0 90 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M8 16 L20 8 L32 16" stroke="#D4AF37" stroke-width="2" fill="none"/>
-        </svg>
-      </div>
-      <div class="logo-card">
-        <svg width="90" height="24" viewBox="0 0 90 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="6" y="6" width="24" height="12" stroke="#D4AF37" stroke-width="2"/>
-        </svg>
-      </div>
-      <div class="logo-card">
-        <svg width="90" height="24" viewBox="0 0 90 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <polygon points="10,18 18,6 26,18" stroke="#D4AF37" stroke-width="2" fill="none"/>
-        </svg>
-      </div>
-      <div class="logo-card">
-        <svg width="90" height="24" viewBox="0 0 90 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M10 12 H30" stroke="#D4AF37" stroke-width="2"/>
-        </svg>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="faq">
-  <div class="container">
-    <div class="section-head"><h2>FAQ</h2></div>
-    <div class="faq grid">
-      <div class="item">
-        <button type="button"><strong>등록은 어떻게 하나요?</strong><span>＋</span></button>
-        <div class="answer">상단 Register 버튼 또는 공지된 폼 링크로 신청합니다.</div>
-      </div>
-      <div class="item">
-        <button type="button"><strong>스폰서 문의</strong><span>＋</span></button>
-        <div class="answer">스폰서십 등급/혜택 자료를 이메일로 보내드립니다.</div>
-      </div>
-      <div class="item">
-        <button type="button"><strong>발표/포스터 제출</strong><span>＋</span></button>
-        <div class="answer">마감일과 템플릿은 News에서 확인해주세요.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="register" style="padding:56px 0; border-top:1px solid var(--line); background:linear-gradient(180deg, rgba(212,175,55,.08), rgba(0,0,0,0))">
-  <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap">
-    <div>
-      <h2 style="margin:0">사전등록</h2>
-      <p class="muted" style="margin:.25rem 0 0">학생/일반/스폰서 티켓</p>
-    </div>
-    <a class="btn" href="https://forms.gle/" target="_blank" rel="noreferrer">Google Form 열기</a>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="container">
-    <div class="section-head"><h2>Contact</h2></div>
-    <div class="card">
-      <p class="muted">문의: info@aibiox-confex.org</p>
-      <p class="muted">장소: COEX, Seoul</p>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="container foot-row tiny">
-    <div>© <span id="yr"></span> AI‑BioX ConfEX</div>
-    <div>Seoul · COEX · Dec 11–13, 2025</div>
-  </div>
-</footer>
-
-<script>
-  // Year
-  document.getElementById('yr').textContent = new Date().getFullYear()
-  // FAQ toggle
-  document.querySelectorAll('.faq .item').forEach((it)=>{
-    const btn = it.querySelector('button')
-    btn.addEventListener('click',()=>{
-      const open = it.classList.toggle('open')
-      btn.querySelector('span').textContent = open ? '−' : '＋'
-    })
-  })
-</script>
+  <footer class="footer">
+    <div class="container">© <span id="yr"></span> AI‑BioX ConfEX · Seoul · COEX</div>
+  </footer>
+  <script>document.getElementById('yr').textContent=new Date().getFullYear()</script>
 </body>
 </html>
